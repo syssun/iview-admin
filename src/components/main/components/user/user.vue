@@ -9,6 +9,7 @@
         <DropdownItem name="message">
           消息中心<Badge style="margin-left: 10px" :count="messageUnreadCount"></Badge>
         </DropdownItem>
+        <DropdownItem name="clear_store">清空缓存</DropdownItem>
         <DropdownItem name="logout">退出登录</DropdownItem>
       </DropdownMenu>
     </Dropdown>
@@ -18,6 +19,7 @@
 <script>
 import './user.less'
 import { mapActions } from 'vuex'
+import { localClearAll } from '@/libs/util.js'
 export default {
   name: 'User',
   props: {
@@ -32,10 +34,19 @@ export default {
   },
   methods: {
     ...mapActions([
-      'handleLogOut'
+      'handleLogOut',
+      'clear_store'
     ]),
     logout () {
       this.handleLogOut().then(() => {
+        this.$router.push({
+          name: 'login'
+        })
+      })
+    },
+    clearstore () {
+      this.handleLogOut().then(() => {
+        localClearAll()
         this.$router.push({
           name: 'login'
         })
@@ -51,6 +62,8 @@ export default {
         case 'logout': this.logout()
           break
         case 'message': this.message()
+          break
+        case 'clear_store': this.clearstore()
           break
       }
     }

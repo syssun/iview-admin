@@ -9,7 +9,8 @@ import {
   restoreTrash,
   getUnreadCount
 } from '@/api/user'
-import { setToken, getToken } from '@/libs/util'
+import { setToken, getToken,localClearAll } from '@/libs/util'
+import store from '@/store'
 
 export default {
   state: {

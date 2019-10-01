@@ -1,4 +1,4 @@
-import { getParams } from '@/libs/util'
+import { getParams, localClearAll } from '@/libs/util'
 const USER_MAP = {
   super_admin: {
     name: 'super_admin',
@@ -28,4 +28,8 @@ export const getUserInfo = req => {
 
 export const logout = req => {
   return null
+}
+export const clearStore = req => {
+  //清空缓存
+  return localClearAll()
 }
