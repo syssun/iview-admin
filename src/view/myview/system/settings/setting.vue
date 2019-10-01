@@ -4,10 +4,10 @@
 
 <script>
   export default{
-    name: 'info',
-    data() {
+    name: 'setting',
+    data () {
       return {
-        msg: 'myinfo'
+        msg: '系统设置'
       }
     }
   }

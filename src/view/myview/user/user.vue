@@ -4,10 +4,9 @@
 
 <script>
   export default{
-    name: 'info',
     data() {
       return {
-        msg: 'myinfo'
+        msg: '用户管理'
       }
     }
   }
